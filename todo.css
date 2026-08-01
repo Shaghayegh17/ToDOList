@@ -1,0 +1,223 @@
+@font-face {
+  font-family: vazir;
+  src: url(./fontsmain/Vazirmatn-VariableFont_wght.ttf);
+}
+
+:root {
+  --green: rgb(0, 255, 0);
+  --pink: rgb(240, 151, 195);
+  --black: black;
+  --bluedrak: blue;
+  --bluelight: rgb(60, 175, 221);
+  --verylightgreen: rgb(230, 247, 238);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: vazir, Arial, Helvetica, sans-serif;
+  direction: rtl;
+  margin: 0;
+}
+/* navbor */
+.logo {
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 3s ease-in-out;
+}
+.nav-items:hover {
+  transform: translateX(1.02rem);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  font-size: 2rem;
+  gap: 2rem;
+  transition: 2s ease-in-out;
+}
+
+.nav-item-list {
+  border: 0.5px solid var(--green);
+  border-radius: 1rem;
+  text-align: center;
+  padding: 3.5rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.nav-item a {
+  text-decoration: none;
+  color: var(--bluedrak);
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-item-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-item {
+    padding-right: 1rem;
+    font-size: 1rem;
+  }
+}
+/* ساخت تسک */
+legend {
+  font-size: 2rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.builttask-total {
+  border: 1px solid var(--green);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.builttask-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.builttask-input {
+  font-size: 2rem;
+  height: 3rem;
+}
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  background-color: var(--green);
+}
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover {
+  background-color: var(--green);
+  font-weight: bold;
+}
+#description:focus,
+#task:focus {
+  background-color: var(--verylightgreen);
+}
+
+@media only screen and (max-width: 600px) {
+  legend {
+    font-size: 1rem;
+  }
+  label {
+    font-size: 0.9rem;
+  }
+
+  .builttask-total {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  textarea {
+    width: 11rem;
+    height: 10rem;
+  }
+
+  .builttask-input {
+    font-size: 1rem;
+    height: 2rem;
+    width: 1.5rem;
+  }
+}
+/* کارت کارها */ /* گزارش  */
+
+#card {
+  border: 1px solid var(--green);
+  border-radius: 2rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+caption {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 0.2rem solid var(--pink);
+}
+table,
+td,
+th {
+  border: 0.3rem solid var(--green);
+  border-collapse: collapse;
+  text-align: center;
+  width: 1.5rem;
+  height: 2rem;
+  padding: 0.5rem;
+  /* margin-right: 50rem; */
+  margin-bottom: 1rem;
+}
+
+table:hover,
+td:hover,
+th:hover {
+  background-color: var(--verylightgreen);
+}
+th {
+  background-color: var(--pink);
+}
+#report {
+  border: 1px solid var(--green);
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  table {
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  background-color: var(--bluelight);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

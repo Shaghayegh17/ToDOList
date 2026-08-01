@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="todo.css">
+  </head>
+  <body>
+    <header>
+      <nav class="nav-items">
+        <img src="./pic/logo.png" alt="لوگوی سایت مدیریت کارها" / class="logo nav-item">
+        <ul class="nav-item-list">
+            
+          <li class="nav-item"><a href="#builttaskfo">ایجاد کارها</a></li>
+          <li class="nav-item"><a href="#report" >گزارش انجام کارها</a></li>
+          <li class="nav-item"><a href="#taskslist">لیست کارها</a></li>
+          </ul>
+          
+      </nav>
+    </header>
+    <main>
+      <section>
+        <fieldset class="builttask-total">
+        
+        <form action="" id="builttaskfo" class="builttask-form">
+          <legend>ایجاد کار</legend>
+          <label for="task" >نام کار</label>
+          <input type="text" name="task" value="" id="task" maxlength="50" minlength="3" required />
+          <textarea
+            placeholder="هدف از انجام این کار ..."
+            name="description"
+            id="description"
+            rows="10"
+            cols="30"
+            required
+          ></textarea>
+          <legend>انتخاب دسته بندی کارها</legend>
+          <select name="category" id="category" required class="builttask-input">
+            <option value="">انتخاب دسته بندی کارها</option>
+            <option value="study" >مطالعه کردن(بررسی کردن)</option>
+            <option value="work">کار</option>
+            <option value="shopping">خرید</option>
+            <option value="personality">شخصی</option>
+        </select>
+        <legend>اولویت بندی کارها</legend>
+        <select name="Priority" id="Priority" required class="builttask-input">
+            <option value="">اولویت بندی کارها</option>
+            <option value="low">پایین</option>
+            <option value="medium">متوسط</option>
+            <option value="high">بالا</option>
+        </select>
+        <label for="duedate">تاریخ سررسید</label>
+        <input type="date" name="duedate" id="duedate" class="builttask-option" required>
+        <input type="submit" value="ایجاد" class="builttask-input" id="btn">
+        </form>
+        </fieldset>
+        </section>
+       <section id="card">
+  <table id="taskslist">
+    <caption>کارت ها</caption>
+
+    <thead>
+      <tr>
+        <th>نام کار</th>
+        <th>اولویت بندی کار</th>
+        <th>دسته بندی کار</th>
+        <th>تاریخ سر رسید</th>
+        <th>شناسه تسک</th>
+        <th>وضعیت انجام کار</th>
+        <th>تغییرات</th>
+      </tr>
+    </thead>
+
+    <tbody class="card-items">
+
+    </tbody>
+  </table>
+</section>
+        <section id="report">
+         <table>
+          <caption>گزارش انجام کارها</caption>
+          <thead>
+            <tr>
+              <th>وضعیت انجام کار</th>
+              <th>تعداد</th>
+            </tr>
+          </thead>
+         
+          <tfoot>
+            <tr>
+              <td>جمع انجام شده ها</td>
+              <td id="totaldone">1</td>
+            </tr>
+            <tr>
+              <td>جمع در حال انجام</td>
+              <td id="totalpending">1</td>
+            </tr>
+            <tr>
+              <td>جمع متوقف شده ها</td>
+              <td id="totalstop">0</td>
+            </tr>
+          </tfoot>
+         </table> 
+        </section>
+      
+    </main>
+    <footer class="footer">
+      <h4>version 1.0.0</h4>
+    </footer>
+    <script src="./todo.js"></script>
+  </body>
+</html>
