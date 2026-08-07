@@ -1,10 +1,17 @@
 // گرفتن فرم
-const tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasksitem")) || [];
+render(tasks);
+// console.log(tasks[0].id);
+function savetasks() {
+  return localStorage.setItem("tasksitem", JSON.stringify(tasks));
+}
 let editId = null;
-function render() {
-  const act = tasks
-    .map(function (act) {
-      return `
+function render(list) {
+  let tablelist = document.querySelector(".card-items");
+  if (list.length !== 0) {
+    const acts = list
+      .map(function (act) {
+        return `
         <tr data-id="${act.id}">
           <td>${act.task}</td>
           <td>${act.Priority}</td>
@@ -35,23 +42,26 @@ function render() {
             </select>
           </td>
         </tr>`;
-    })
-    .join("");
-  const tablelist = document.querySelector(".card-items");
-  tablelist.innerHTML = act;
+      })
+      .join("");
+
+    tablelist.innerHTML = acts;
+  } else {
+    const notvaluesearch = `
+      <tr>
+      <td colspan="7">موردی یافت نشد</td>
+      </tr>
+      `;
+
+    tablelist.innerHTML = notvaluesearch;
+  }
 }
+
 const form = document.querySelector("#builttaskfo");
 console.log(form.elements);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  // console.log(form.elements.duedate.value);
-  // console.log(form.elements.task.value);
-  // console.log(form.elements.category.value);
-  // console.log(form.elements.Priority.value);
-  // console.log(event.type);
-  // console.log(event.target);
 
   const objectTask = {
     task: form.elements.task.value,
@@ -62,10 +72,10 @@ form.addEventListener("submit", (event) => {
     id: Date.now(),
     status: "PENDING",
   };
-  // ساخت لیست کارها
   if (editId === null) {
     tasks.push(objectTask);
-    render();
+    savetasks();
+    render(tasks);
     updateReport();
     form.reset();
   } else {
@@ -79,7 +89,8 @@ form.addEventListener("submit", (event) => {
     tasks[editfinall].duedate = form.elements.duedate.value;
     tasks[editfinall].description = form.elements.description.value;
     console.log(tasks);
-    render();
+    savetasks();
+    render(tasks);
     updateReport();
     form.reset();
     editId = null;
@@ -91,7 +102,6 @@ form.addEventListener("submit", (event) => {
 // حذف و ویرایش
 
 const tablelist = document.querySelector(".card-items");
-// console.dir(tablelist);
 tablelist.addEventListener("change", (event) => {
   const selection = event.target;
   const row = selection.parentElement.parentElement.dataset.id;
@@ -100,9 +110,9 @@ tablelist.addEventListener("change", (event) => {
     const delet = tasks.findIndex(function (remove) {
       return remove.id === +row;
     });
-
     tasks.splice(delet, 1);
-    render();
+    savetasks();
+    render(tasks);
     updateReport();
     editId = null;
   } else if (
@@ -128,7 +138,8 @@ tablelist.addEventListener("change", (event) => {
       return stat.id === +row;
     });
     tasks[statement].status = event.target.value;
-    render();
+    savetasks();
+    render(tasks);
     updateReport();
   }
 });
@@ -157,16 +168,28 @@ function updateReport() {
   const dones = tasks.filter(function filterdone(doneitem) {
     return doneitem.status === "DONE";
   }).length;
-  const donereport = (document.querySelector("#totaldone").textContent = dones);
+  document.querySelector("#totaldone").textContent = dones;
 
   const pendings = tasks.filter(function filterpending(penditem) {
     return penditem.status === "PENDING";
   }).length;
-  const pendreport = (document.querySelector("#totalpending").textContent =
-    pendings);
+  document.querySelector("#totalpending").textContent = pendings;
 
   const stops = tasks.filter(function filterstop(stopitem) {
     return stopitem.status === "stop";
   }).length;
-  const stopreport = (document.querySelector("#totalstop").textContent = stops);
+  document.querySelector("#totalstop").textContent = stops;
 }
+
+// search
+const searchevent = document.querySelector("#search");
+searchevent.addEventListener("change", (event) => {
+  if (event.target.name === "search") {
+    const searchvalue = tasks.filter(function searching(property) {
+      return property.task
+        .toLowerCase()
+        .includes(event.target.value.toLowerCase());
+    });
+    render(searchvalue);
+  }
+});

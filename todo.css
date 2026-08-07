@@ -166,8 +166,20 @@ input[type="reset"]:hover {
   border-radius: 2rem;
   margin-top: 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#search {
+  margin-top: 1rem;
+}
+.searchicon {
+  width: 20rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 0.2rem;
+  left: 1.8rem;
 }
 caption {
   font-weight: bold;
@@ -202,8 +214,6 @@ th {
   justify-content: center;
   align-items: center;
 }
-
-
 
 @media only screen and (max-width: 600px) {
   table {
