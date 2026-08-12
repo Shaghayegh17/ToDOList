@@ -181,6 +181,10 @@ input[type="reset"]:hover {
   top: 0.2rem;
   left: 1.8rem;
 }
+
+#searchsvg {
+  pointer-events: none;
+}
 caption {
   font-weight: bold;
   margin-bottom: 1rem;

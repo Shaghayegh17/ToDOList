@@ -193,3 +193,50 @@ searchevent.addEventListener("change", (event) => {
     render(searchvalue);
   }
 });
+
+const sortsystem = document.querySelector("#sorting");
+sortsystem.addEventListener("change", (event) => {
+  if (event.target.value === "alphabetsort") {
+    tasks.sort((a, b) => {
+      if (a.task.toLowerCase() > b.task.toLowerCase()) {
+        return 1;
+      } else if (a.task.toLowerCase() < b.task.toLowerCase()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (event.target.value === "duedatesort") {
+    tasks.sort((c, d) => {
+      if (c.duedate > d.duedate) {
+        return 1;
+      } else if (c.duedate < d.duedate) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (event.target.value === "newstsort") {
+    tasks.sort((e, f) => {
+      if (e.id > f.id) {
+        return -1;
+      } else if (e.id < f.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (event.target.value === "oldsort") {
+    tasks.sort((g, h) => {
+      if (g.id < h.id) {
+        return -1;
+      } else if (g.id > h.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+  render(tasks);
+  savetasks();
+});
