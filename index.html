@@ -67,8 +67,27 @@
   <option value="newstsort" name="newstsort">جدید ترین ها</option>
   <option value="oldestsort" name="oldestsort">قدیمی ترین ها</option>
   <option value="alphabetsort" name="alphabetsort">حروف الفبا</option>
-  <option value="duedatesort" name="duedatesort">زمان سررسید</option>
-</select>
+  <option value="duedatesort" name="duedatesort">زمان سررسید</option></select>
+  <legend>فیلتر</legend>
+  <select name="filteringsystem" id="filterigsystem">
+<optgroup label="دسته بندی">
+  <option value="studyfilter">مطالعه کردن(بررسی کردن)</option>
+  <option value="workfilter">کار</option>
+  <option value="shoppingfilter">خرید</option>
+  <option value="personalityfilter">شخصی</option>
+</optgroup>
+<optgroup label="اولویت بندی">
+  <option value="highfilter">بالا</option>
+  <option value="mediumfilter">متوسط</option>
+  <option value="lowfilter">پایین</option>
+</optgroup>
+<optgroup label="وضعیت انجام کارها">
+  <option value="donefilter">انجام شد</option>
+  <option value="pendingfilter">درحال انجام</option>
+  <option value="stopfilter">متوقف شده</option>
+</optgroup>
+  </select>
+
   <table id="taskslist">
     <caption>کارت ها</caption>
 
@@ -120,6 +139,8 @@
     <footer class="footer">
       <h4>version 1.0.0</h4>
     </footer>
+
+   
     <script src="./todo.js"></script>
   </body>
 </html>

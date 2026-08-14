@@ -1,6 +1,7 @@
 // گرفتن فرم
 let tasks = JSON.parse(localStorage.getItem("tasksitem")) || [];
 render(tasks);
+console.log(tasks);
 // console.log(tasks[0].id);
 function savetasks() {
   return localStorage.setItem("tasksitem", JSON.stringify(tasks));
@@ -194,8 +195,10 @@ searchevent.addEventListener("change", (event) => {
   }
 });
 
+// sort
 const sortsystem = document.querySelector("#sorting");
 sortsystem.addEventListener("change", (event) => {
+  
   if (event.target.value === "alphabetsort") {
     tasks.sort((a, b) => {
       if (a.task.toLowerCase() > b.task.toLowerCase()) {
@@ -226,7 +229,7 @@ sortsystem.addEventListener("change", (event) => {
         return 0;
       }
     });
-  } else if (event.target.value === "oldsort") {
+  } else if (event.target.value === "oldestsort") {
     tasks.sort((g, h) => {
       if (g.id < h.id) {
         return -1;
@@ -239,4 +242,52 @@ sortsystem.addEventListener("change", (event) => {
   }
   render(tasks);
   savetasks();
+});
+
+// filter
+const filteringsystem = document.querySelector("#filterigsystem");
+filteringsystem.addEventListener("change", (event) => {
+  let value = tasks;
+  if (event.target.value === "studyfilter") {
+    value = tasks.filter((item) => {
+      return item.category === "study";
+    });
+  } else if (event.target.value === "workfilter") {
+    value = tasks.filter((item) => {
+      return item.category === "work";
+    });
+  } else if (event.target.value === "shoppingfilter") {
+    value = tasks.filter((item) => {
+      return item.category === "shopping";
+    });
+  } else if (event.target.value === "personalityfilter") {
+    value = tasks.filter((item) => {
+      return item.category === "personality";
+    });
+  } else if (event.target.value === "highfilter") {
+    value = tasks.filter((item) => {
+      return item.Priority === "high";
+    });
+  } else if (event.target.value === "mediumfilter") {
+    value = tasks.filter((item) => {
+      return item.Priority === "medium";
+    });
+  } else if (event.target.value === "lowfilter") {
+    value = tasks.filter((item) => {
+      return item.Priority === "low";
+    });
+  } else if (event.target.value === "donefilter") {
+    value = tasks.filter((item) => {
+      return item.status === "DONE";
+    });
+  } else if (event.target.value === "pendingfilter") {
+    value = tasks.filter((item) => {
+      return item.status === "PENDING";
+    });
+  } else if (event.target.value === "stopfilter") {
+    value = tasks.filter((item) => {
+      return item.status === "stop";
+    });
+  }
+  render(value);
 });
