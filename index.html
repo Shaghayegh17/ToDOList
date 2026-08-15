@@ -38,19 +38,25 @@
           <legend>انتخاب دسته بندی کارها</legend>
           <select name="category" id="category" required class="builttask-input">
             <option value="">انتخاب دسته بندی کارها</option>
-            <option value="study" >مطالعه کردن(بررسی کردن)</option>
-            <option value="work">کار</option>
-            <option value="shopping">خرید</option>
-            <option value="personality">شخصی</option>
+            <option value="study" >مطالعه کردن(بررسی کردن) &#128214;</option>
+            <option value="work">کار &#128188;</option>
+            <option value="shopping">خرید &#128184;</option>
+            <option value="personality">شخصی &#128100;</option>
         </select>
         <legend>اولویت بندی کارها</legend>
-        <select name="Priority" id="Priority" required class="builttask-input">
+        <div class="Prioritybox">
+          <select name="Priority" id="Priority" required class="builttask-input">
             <option value="">اولویت بندی کارها</option>
-            <option value="low">پایین</option>
-            <option value="medium">متوسط</option>
-            <option value="high">بالا</option>
+            <option value="low">پایین &#128315;</option>
+          
+            <option value="medium">متوسط &#128313;</option>
+          
+            <option value="high">بالا &#128314;</option>
+            
         </select>
-        <label for="duedate">تاریخ سررسید</label>
+        </div>
+        
+        <label for="duedate">تاریخ سررسید </label>
         <input type="date" name="duedate" id="duedate" class="builttask-option" required>
         <input type="submit" value="ایجاد" class="builttask-input" id="btn">
         </form>

@@ -23,15 +23,15 @@ function render(list) {
           <td>
             <select name="statement" class="statement">
              <option value="DONE" ${act.status === "DONE" ? "selected" : ""}>
-  انجام شد
+  انجام شد&#9989;
 </option>
 
 <option value="PENDING" ${act.status === "PENDING" ? "selected" : ""}>
-  در حال انجام
+  در حال انجام&#8987;
 </option>
 
 <option value="stop" ${act.status === "stop" ? "selected" : ""}>
-  توقف
+  توقف&#10060;
 </option>
             </select>
           </td>
