@@ -57,18 +57,25 @@
         </fieldset>
         </section>
        <section id="card">
-<input type="search" name="search" id="search" placeholder="search" value="" autocomplete="off" class="searchicon">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="searchicon" id="searchsvg">
-  <circle cx="11" cy="11" r="8"></circle>
-  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-</svg>
-<legend>مرتب سازی</legend>
+        <div class="serchbox">
+          <img src="./pic/search-svgrepo-com.svg" alt="ایکون سرچ" class="searchpicture">
+          <input type="search" name="search" id="search" placeholder="search" value="" autocomplete="off" class="searchicon">
+
+        </div>
+
+<div class="sortbox">
+  <img src="./pic/sort-swap-svgrepo-com.svg" alt="ایکون مرتب سازی" class="sortpicture">
+
 <select name="sorting" id="sorting">
   <option value="newstsort" name="newstsort">جدید ترین ها</option>
   <option value="oldestsort" name="oldestsort">قدیمی ترین ها</option>
   <option value="alphabetsort" name="alphabetsort">حروف الفبا</option>
   <option value="duedatesort" name="duedatesort">زمان سررسید</option></select>
-  <legend>فیلتر</legend>
+</div>
+<div class="filterbox">
+    <img src="./pic/filter-svgrepo-com.svg" alt="ایکون فیلترکردن" class="filterpicture">
+
+  
   <select name="filteringsystem" id="filterigsystem">
 <optgroup label="دسته بندی">
   <option value="studyfilter">مطالعه کردن(بررسی کردن)</option>
@@ -87,6 +94,8 @@
   <option value="stopfilter">متوقف شده</option>
 </optgroup>
   </select>
+</div>
+
 
   <table id="taskslist">
     <caption>کارت ها</caption>
