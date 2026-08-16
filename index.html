@@ -26,7 +26,7 @@
         <form action="" id="builttaskfo" class="builttask-form">
           <legend>ایجاد کار</legend>
           <label for="task" >نام کار</label>
-          <input type="text" name="task" value="" id="task" maxlength="50" minlength="3" required />
+          <input type="text" name="task" value="" id="task" maxlength="50" minlength="3" required class="builttask-input" />
           <textarea
             placeholder="هدف از انجام این کار ..."
             name="description"
@@ -56,16 +56,18 @@
         </select>
         </div>
         
-        <label for="duedate">تاریخ سررسید </label>
+        <label for="duedate">تاریخ سررسید &#128197;</label>
         <input type="date" name="duedate" id="duedate" class="builttask-option" required>
         <input type="submit" value="ایجاد" class="builttask-input" id="btn">
         </form>
         </fieldset>
         </section>
        <section id="card">
-        <div class="serchbox">
+        <div class="searchsortfilter">
+
+            <div class="serchbox">
           <img src="./pic/search-svgrepo-com.svg" alt="ایکون سرچ" class="searchpicture">
-          <input type="search" name="search" id="search" placeholder="search" value="" autocomplete="off" class="searchicon">
+          <input type="search" name="search" id="search" placeholder="search " value="" autocomplete="off" class="searchicon">
 
         </div>
 
@@ -101,9 +103,11 @@
 </optgroup>
   </select>
 </div>
+        </div>
+      
 
-
-  <table id="taskslist">
+<div class="tablecontainer">
+   <table id="taskslist">
     <caption>کارت ها</caption>
 
     <thead>
@@ -122,6 +126,8 @@
 
     </tbody>
   </table>
+</div>
+ 
 </section>
         <section id="report">
          <table>
